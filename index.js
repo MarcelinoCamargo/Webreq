@@ -1,8 +1,12 @@
+const { configDotenv } = require("dotenv");
 const express = require('express')
 const app = express()
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
 
-app.listen(3000)
+app.get('/soma', function (req, res) {
+  const soma = 1 + 2;
+  
+  res.send({soma:soma});
+});
+
+app.listen(3000)  
