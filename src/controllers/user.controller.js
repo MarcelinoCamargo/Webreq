@@ -1,7 +1,9 @@
-const soma = (req,res)=>{
-    const soma = 20 + 2;
-  
-  res.send({soma:soma});
+const create = (req, res) => {
+    const user = req.body;
+
+    console.log(user);
+
+    res.json(user)
 };
 
-module.exports = {soma};
+module.exports = { create };
