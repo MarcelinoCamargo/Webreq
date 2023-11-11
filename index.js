@@ -1,19 +1,14 @@
-const { configDotenv } = require("dotenv");
+const { configDotenv } = require("dotenv").config();
 const express = require('express')
-const app = express()
-
+const connectDatabase = require("./src/database/db")
 const userRoute = require("./src/routes/user.route")
 
+const app = express()
 const port = 3000
 
-app.use(express.json())
-app.use("/user", userRoute)
-
-
-/*app.get('/soma', function (req, res) {
-  const soma = 1 + 2;
-  
-  res.send({soma:soma});
-});*/
+connectDatabase()
+app.use(express.json());
+app.use("/user", userRoute);
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`))  
+
